@@ -27,8 +27,17 @@
  *
  * @author Sergei Parshev <sparshev@griddynamics.com>
  */
-def call() {
- 
+def call(body) {
+  def MPL = MPLPipelineConfig(body, [
+    agent_label: '',
+    modules: [
+      Checkout: [:],
+      Build: [:],
+      Deploy: [:],
+      Test: [:]
+    ]
+  ])
+
   pipeline {
     agent any
     
