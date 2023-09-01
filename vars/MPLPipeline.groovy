@@ -27,44 +27,25 @@
  *
  * @author Sergei Parshev <sparshev@griddynamics.com>
  */
-def call() {
+def call(body) {
+  def MPL = MPLPipelineConfig(body, [
+    agent_label: '',
+    modules: [
+      Checkout: [:],
+      Build: [:],
+      Deploy: [:],
+      Test: [:]
+    ]
+  ])
 
   pipeline {
+    agent any
+    
     stages {
       stage( 'Checkout' ) {
-        
         steps {
-          echo "Checkout Stage of Main Shared Library"
+          echo "From Checkout stage"
         }
-      }
-      stage( 'Build' ) {
-        
-        steps {
-          echo "Build Stage of Main Shared Library"
-        }
-      }
-      stage( 'Deploy' ) {
-        
-        steps {
-          echo "Deploy Stage of Main Shared Library"
-        }
-      }
-      stage( 'Test' ) {
-        
-        steps {
-          echo "Test Stage of Main Shared Library"
-        }
-      }
-    }
-    post {
-      always {
-        echo "Post Always Stage of Main Shared Library"
-      }
-      success {
-        echo "Post Success Stage of Main Shared Library"
-      }
-      failure {
-        echo "Post Failure Stage of Main Shared Library"
       }
     }
   }
