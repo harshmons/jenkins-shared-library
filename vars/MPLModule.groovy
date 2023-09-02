@@ -83,7 +83,7 @@ def call(String name = env.STAGE_NAME, cfg = null) {
 
   String block_id = MPLManager.instance.pushActiveModule(module_path)
   try {
-    // Helper.runModule(module_src, module_path, [CFG: cfg, OUT: out])
+    Helper.runModule(module_src, module_path, [CFG: cfg, OUT: out])
   }
   catch( FlowInterruptedException ex ) {
     // The exception is used by Jenkins to abort a running build and consequently
