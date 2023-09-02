@@ -2,4 +2,5 @@
  * Checkout for the current SCM
  */
 
-checkout scm
+// checkout scm
+echo "I am from Default Checkout"
