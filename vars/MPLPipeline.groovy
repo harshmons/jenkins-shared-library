@@ -36,7 +36,7 @@ def call(body) {
       Deploy: [:],
       Test: [:]
     ]
-  ],[agent_label:'any'])
+  ],[agent_label:''])
   pipeline {
     agent {
       label MPL.agentLabel
