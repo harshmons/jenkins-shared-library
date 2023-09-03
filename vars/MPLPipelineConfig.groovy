@@ -66,7 +66,7 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     throw new MPLException("Unsupported MPL pipeline configuration type provided: ${body}")
 
   Helper.mergeMaps(config, overrides)
-
+  println "After Merging ---> ${config.agent_label}"
   // Init the MPL Pipeline
   MPLManager.instance.init(config)
 }
