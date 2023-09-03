@@ -54,7 +54,7 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     println "currentBuild ---> ${currentBuild}"
     // Here we executing the closure to update the pipeline defaults with the closure values
     body()
-
+    println "After Body ---> ${defaults.agent_label} , ${config.agent_label}"
     // Removing the global variables from the config
     config.remove('env')
     config.remove('params')
