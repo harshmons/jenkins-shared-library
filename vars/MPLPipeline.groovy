@@ -37,9 +37,6 @@ def call(body) {
       Test: [:]
     ]
   ])
-   echo "Arguments below"
-  echo body
-  echo "Arguments ---${MPL}"
   pipeline {
     agent {
       label MPL.agentLabel
