@@ -38,7 +38,7 @@ import com.griddynamics.devops.mpl.MPLException
  */
 def call(body, Map defaults = [:], Map overrides = [:]) {
   def config = defaults
-
+  println config.agent_label
   // Merging configs
   if( body in Closure ) {
     // This logic allow us to use configuration closures instead of maps
@@ -59,6 +59,7 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     config.remove('env')
     config.remove('params')
     config.remove('currentBuild')
+    println config.agent_label
   } else if( body in Map ) {
     Helper.mergeMaps(config, body)
   } else
