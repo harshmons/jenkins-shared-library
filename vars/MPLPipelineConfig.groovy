@@ -49,7 +49,9 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     config.env = env
     config.params = params
     config.currentBuild = currentBuild
-
+    println "Env ---> ${env}"
+    println "params ---> ${params}"
+    println "currentBuild ---> ${currentBuild}"
     // Here we executing the closure to update the pipeline defaults with the closure values
     body()
 
