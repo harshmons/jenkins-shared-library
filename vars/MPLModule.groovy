@@ -73,10 +73,12 @@ def call(String name = env.STAGE_NAME, cfg = null) {
     println "Inside If ---> module_src ${module_src}"
   } else {
     // Searching for the not executed module from the loaded libraries
+    println "Inside Else Helper.getModulesList(module_path) ${Helper.getModulesList(module_path)}"
     module_src = Helper.getModulesList(module_path).find { it ->
       module_path = "library:${it.first()}".toString()
       ! active_modules.contains(module_path)
     }?.last()
+    
     println "Inside Else ---> module_path ${module_path}"
     println "Inside Else ---> module_src ${module_src}"
   }
