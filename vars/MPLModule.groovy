@@ -62,17 +62,23 @@ def call(String name = env.STAGE_NAME, cfg = null) {
 
   // Reading module definition from workspace or from the library resources
   def module_src = null
+  println "module_path --> ${module_path}"
+  println "project_path --> ${project_path}"
   if( MPLManager.instance.checkEnforcedModule(name)
       && Helper.pathExists(project_path)
       && (! active_modules.contains(project_path)) ) {
     module_path = project_path
     module_src = Helper.pathRead(project_path)
+    println "Inside If ---> module_path ${module_path}"
+    println "Inside If ---> module_src ${module_src}"
   } else {
     // Searching for the not executed module from the loaded libraries
     module_src = Helper.getModulesList(module_path).find { it ->
       module_path = "library:${it.first()}".toString()
       ! active_modules.contains(module_path)
     }?.last()
+    println "Inside Else ---> module_path ${module_path}"
+    println "Inside Else ---> module_src ${module_src}"
   }
 
   if( ! module_src )
