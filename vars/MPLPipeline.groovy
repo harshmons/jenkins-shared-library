@@ -46,7 +46,7 @@ def call(body) {
     }
     stages {
       stage( 'Checkout' ) {
-        when { expression { false } }
+        when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
         }
