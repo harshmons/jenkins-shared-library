@@ -38,7 +38,7 @@ import com.griddynamics.devops.mpl.MPLException
  */
 def call(body, Map defaults = [:], Map overrides = [:]) {
   def config = defaults
-  println "DEFAULTS ---> ${defaults.agent_label}"
+  // println "DEFAULTS ---> ${defaults.agent_label}"
   // Merging configs
   if( body in Closure ) {
     // This logic allow us to use configuration closures instead of maps
@@ -49,12 +49,12 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     config.env = env
     config.params = params
     config.currentBuild = currentBuild
-    println "Env ---> ${env.STAGE_NAME}"
-    println "params ---> ${params}"
-    println "currentBuild ---> ${currentBuild}"
+    // println "Env ---> ${env.STAGE_NAME}"
+    // println "params ---> ${params}"
+    // println "currentBuild ---> ${currentBuild}"
     // Here we executing the closure to update the pipeline defaults with the closure values
     body()
-    println "After Body ---> ${defaults.agent_label} , ${config.agent_label}"
+    // println "After Body ---> ${defaults.agent_label} , ${config.agent_label}"
     // Removing the global variables from the config
     config.remove('env')
     config.remove('params')
@@ -66,7 +66,7 @@ def call(body, Map defaults = [:], Map overrides = [:]) {
     throw new MPLException("Unsupported MPL pipeline configuration type provided: ${body}")
 
   Helper.mergeMaps(config, overrides)
-  println "After Merging ---> ${config.agent_label}"
+  // println "After Merging ---> ${config.agent_label}"
   // Init the MPL Pipeline
   MPLManager.instance.init(config)
 }
