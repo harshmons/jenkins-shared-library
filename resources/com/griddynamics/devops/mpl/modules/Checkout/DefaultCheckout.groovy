@@ -3,4 +3,4 @@
  */
 
 // checkout scm
-echo "I am from Default Checkout"
+println "[Master Shared Library] : From DefaultCheckout.groovy "

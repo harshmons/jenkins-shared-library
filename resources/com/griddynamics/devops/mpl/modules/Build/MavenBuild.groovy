@@ -7,4 +7,4 @@
 //   sh """mvn -B ${settings} -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install"""
 // }
 
-echo "I am from Maven Build"
+println "[Master Shared Library] : From MavenBuild.groovy "

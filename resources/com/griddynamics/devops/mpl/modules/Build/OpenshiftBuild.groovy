@@ -6,4 +6,4 @@
 //   echo 'TODO: Build openshift container'
 // }
 
-echo "I am from Open shift Build"
+println "[Master Shared Library] : From OpenShiftBuild.groovy "
